@@ -207,13 +207,19 @@ public final class ReciprocalArraySum {
      */
     protected static double parManyTaskArraySum(final double[] input,
             final int numTasks) {
+        ForkJoinPool pool = new ForkJoinPool();
         double sum = 0;
 
-        // Calcula la suma de los recíprocos de los elementos del arreglo
-        for (int i = 0; i < input.length; i++) {
-            sum += 1 / input[i];
+        for(int i = 0; i < numTasks; ++i) {
+            ReciprocalArraySumTask task =
+                  new ReciprocalArraySumTask(
+                        getChunkStartInclusive(i, numTasks, input.length),
+                        getChunkEndExclusive(i, numTasks, input.length),
+                        input
+                  );
+            pool.invoke(task);
+            sum += task.ans;
         }
-
         return sum;
     }
 
@@ -282,7 +288,7 @@ public final class ReciprocalArraySum {
     }
 
     public static void main(String[] args) {
-        double[] example = createArray(100000000);
+        double[] example = createArray(1000000);
 
 /*
         // double[] example = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17};
@@ -293,6 +299,7 @@ public final class ReciprocalArraySum {
         System.out.println(task.ans);
 */
         System.out.println(parArraySum(example));
+        System.out.println(parManyTaskArraySum(example, 2));
         System.out.println(seqArraySum(example));
     }
 }

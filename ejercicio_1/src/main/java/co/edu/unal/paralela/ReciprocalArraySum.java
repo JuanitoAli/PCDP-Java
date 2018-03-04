@@ -240,7 +240,7 @@ public final class ReciprocalArraySum {
         return input;
     }
 
-    private double parTestHelper(final int N, final boolean useManyTaskVersion, final int ntasks) {
+    private static double parTestHelper(final int N, final boolean useManyTaskVersion, final int ntasks) {
         // Crea un arreglo de entrada de manera aleatoria
         final double[] input = createArray(N);
         // Utilza una version secuencial para calcular el resultado correcto
@@ -257,7 +257,11 @@ public final class ReciprocalArraySum {
         // Asegura que la salida esperada sea la producida
         final String errMsg = String.format("No concuerda el resultado para N = %d, valor esperado = %f, valor calculado = %f, error " +
                 "absoluto = %f", N, correct, sum, err);
-        // assertTrue(errMsg, err < 1E-2);
+
+        if (!(err < 1E-2))
+            System.out.println(errMsg);
+
+
 
         /*
          * Ejecuta varias repeticiones de la versiones secuncial y paralela para obtener una medida exacta del desempeño paralelo.
@@ -288,18 +292,13 @@ public final class ReciprocalArraySum {
     }
 
     public static void main(String[] args) {
-        double[] example = createArray(1000000);
+        System.out.println(parTestHelper(100000000, true, 100));
 
-/*
-        // double[] example = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17};
-        ForkJoinPool pool = new ForkJoinPool();
-        ReciprocalArraySumTask task =
-                        new ReciprocalArraySumTask(0, example.length, example);
-        pool.invoke(task);
-        System.out.println(task.ans);
-*/
+        /*
+        double[] example = createArray(1000000);
         System.out.println(parArraySum(example));
-        System.out.println(parManyTaskArraySum(example, 2));
+        System.out.println(parManyTaskArraySum(example, 10));
         System.out.println(seqArraySum(example));
+        */
     }
 }

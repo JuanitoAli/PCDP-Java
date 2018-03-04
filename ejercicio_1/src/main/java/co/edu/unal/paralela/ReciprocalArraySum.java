@@ -224,7 +224,7 @@ public final class ReciprocalArraySum {
     }
 
 
-
+/*
     private static double[] createArray(final int N) {
         final double[] input = new double[N];
         final Random rand = new Random(314);
@@ -239,6 +239,7 @@ public final class ReciprocalArraySum {
 
         return input;
     }
+
 
     private static double parTestHelper(final int N, final boolean useManyTaskVersion, final int ntasks) {
         // Crea un arreglo de entrada de manera aleatoria
@@ -263,9 +264,6 @@ public final class ReciprocalArraySum {
 
 
 
-        /*
-         * Ejecuta varias repeticiones de la versiones secuncial y paralela para obtener una medida exacta del desempeño paralelo.
-         */
         int REPEATS = 10;
 
         final long seqStartTime = System.currentTimeMillis();
@@ -292,13 +290,7 @@ public final class ReciprocalArraySum {
     }
 
     public static void main(String[] args) {
-        System.out.println(parTestHelper(100000000, true, 100));
-
-        /*
-        double[] example = createArray(1000000);
-        System.out.println(parArraySum(example));
-        System.out.println(parManyTaskArraySum(example, 10));
-        System.out.println(seqArraySum(example));
-        */
+        System.out.println(parTestHelper(100000000, true, 10));
     }
+*/
 }

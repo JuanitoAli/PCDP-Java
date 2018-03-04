@@ -135,7 +135,7 @@ public final class ReciprocalArraySum {
         protected void compute() {
             int lo = startIndexInclusive;
             int hi = endIndexExclusive;
-            System.out.println("[" + lo + ", " + hi + "]");
+            //System.out.println("[" + lo + ", " + hi + "]");
             if (hi - lo <= SEQUENTIAL_THRESHOLD) {
                 for (int i = lo; i < hi; i++)
                     ans += 1 / input[i];
@@ -186,19 +186,12 @@ public final class ReciprocalArraySum {
                     input
                 );
 
-        ArrayList<ReciprocalArraySumTask> tasks = new ArrayList();
+
         ForkJoinPool pool = new ForkJoinPool();
-        pool.invokeall(tasks);
+        pool.invoke(sumTask1);
+        pool.invoke(sumTask2);
 
         sum = sumTask1.ans + sumTask2.ans;
-
-
-        //ReciprocalArraySumTask sumTask = new ReciprocalArraySumTask();
-        // Calcula la suma de los recíprocos de los elementos del arreglo
-        for (int i = 0; i < input.length; i++) {
-            sum += 1 / input[i];
-        }
-
         return sum;
     }
 
@@ -226,7 +219,7 @@ public final class ReciprocalArraySum {
 
 
 
-    private double[] createArray(final int N) {
+    private static double[] createArray(final int N) {
         final double[] input = new double[N];
         final Random rand = new Random(314);
 
@@ -289,7 +282,16 @@ public final class ReciprocalArraySum {
     }
 
     public static void main(String[] args) {
-        double[] example = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17};
+        double[] example = createArray(100000000);
+
+/*
+        // double[] example = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17};
+        ForkJoinPool pool = new ForkJoinPool();
+        ReciprocalArraySumTask task =
+                        new ReciprocalArraySumTask(0, example.length, example);
+        pool.invoke(task);
+        System.out.println(task.ans);
+*/
         System.out.println(parArraySum(example));
         System.out.println(seqArraySum(example));
     }

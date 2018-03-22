@@ -1,8 +1,8 @@
-//package edu.coursera.parallel;
+package edu.coursera.parallel;
 
 import java.util.Random;
 
-// import junit.framework.TestCase;
+import junit.framework.TestCase;
 
 public class MatrixMultiplyTest extends TestCase {
     // Number of times to repeat each test, for consistent timing results.
@@ -120,7 +120,7 @@ public class MatrixMultiplyTest extends TestCase {
         MatrixMultiply.parMatrixMultiply(A, B, C, N);
         final long parEndTime = System.currentTimeMillis();
 
-        checkResult(refC, C, N);
+        System.out.println(checkResult(refC, C, N));
 
         System.out.println(seqEndTime - seqStartTime);
         System.out.println(parEndTime - seqEndTime);
@@ -130,7 +130,6 @@ public class MatrixMultiplyTest extends TestCase {
      * Tests the performance of the parallel implementation on a 512x512 matrix.
      */
 
-    /*
     public void testPar512_x_512() {
         final int ncores = getNCores();
         double speedup = parTestHelper(25);
@@ -139,12 +138,10 @@ public class MatrixMultiplyTest extends TestCase {
                 "least %fx faster, but it only achieved %fx speedup", minimalExpectedSpeedup, speedup);
         assertTrue(errMsg, speedup >= minimalExpectedSpeedup);
     }
-    */
 
     /**
      * Tests the performance of the parallel implementation on a 768x768 matrix.
      */
-     /*
     public void testPar768_x_768() {
         final int ncores = getNCores();
         double speedup = parTestHelper(768);
@@ -153,5 +150,4 @@ public class MatrixMultiplyTest extends TestCase {
                 "least %fx faster, but it only achieved %fx speedup", minimalExpectedSpeedup, speedup);
         assertTrue(errMsg, speedup >= minimalExpectedSpeedup);
     }
-    */
 }

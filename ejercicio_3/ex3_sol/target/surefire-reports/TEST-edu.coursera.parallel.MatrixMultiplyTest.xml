@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.coursera.parallel.MatrixMultiplyTest" time="0.115" tests="1" errors="0" skipped="0" failures="1">
+<testsuite name="edu.coursera.parallel.MatrixMultiplyTest" time="455.441" tests="2" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="sun.boot.library.path" value="/opt/jdk1.8.0_152/jre/lib/amd64"/>
-    <property name="java.vm.version" value="25.152-b16"/>
+    <property name="sun.boot.library.path" value="/opt/jdk1.8.0_161/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.161-b12"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="/home/juancami/curr/CPyD/PCDP Java/ejercicio_3/ex3_sol"/>
+    <property name="maven.multiModuleProjectDirectory" value="/media/laptop/Archivador/P/Repo/PCDP-Java/ejercicio_3/ex3_sol"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -15,14 +15,15 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/media/juancami/Archivador/Current/CPyD/PCDP Java/ejercicio_3/ex3_sol"/>
-    <property name="java.runtime.version" value="1.8.0_152-b16"/>
+    <property name="user.dir" value="/media/laptop/Archivador/P/Repo/PCDP-Java/ejercicio_3/ex3_sol"/>
+    <property name="java.runtime.version" value="1.8.0_161-b12"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="java.endorsed.dirs" value="/opt/jdk1.8.0_152/jre/lib/endorsed"/>
+    <property name="java.endorsed.dirs" value="/opt/jdk1.8.0_161/jre/lib/endorsed"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="https.proxyHost" value="168.176.239.41"/>
     <property name="os.name" value="Linux"/>
     <property name="classworlds.conf" value="/opt/apache-maven-3.5.2/bin/m2.conf"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -31,40 +32,42 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="4.9.0-6-amd64"/>
+    <property name="os.version" value="4.9.0-5-amd64"/>
     <property name="library.jansi.path" value="/opt/apache-maven-3.5.2/lib/jansi-native"/>
-    <property name="user.home" value="/home/juancami"/>
+    <property name="user.home" value="/home/laptop"/>
     <property name="user.timezone" value="America/Bogota"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
     <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="UTF-8"/>
-    <property name="user.name" value="juancami"/>
+    <property name="user.name" value="laptop"/>
     <property name="java.class.path" value="/opt/apache-maven-3.5.2/boot/plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="java.home" value="/opt/jdk1.8.0_152/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
+    <property name="java.home" value="/opt/jdk1.8.0_161/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -f pom.xml package -Dhttps.proxyHost=168.176.239.41 -Dhttps.proxyPort=8080"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.version" value="1.8.0_152"/>
-    <property name="java.ext.dirs" value="/opt/jdk1.8.0_152/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="java.version" value="1.8.0_161"/>
+    <property name="java.ext.dirs" value="/opt/jdk1.8.0_161/jre/lib/ext:/usr/java/packages/lib/ext"/>
     <property name="securerandom.source" value="file:/dev/./urandom"/>
-    <property name="sun.boot.class.path" value="/opt/jdk1.8.0_152/jre/lib/resources.jar:/opt/jdk1.8.0_152/jre/lib/rt.jar:/opt/jdk1.8.0_152/jre/lib/sunrsasign.jar:/opt/jdk1.8.0_152/jre/lib/jsse.jar:/opt/jdk1.8.0_152/jre/lib/jce.jar:/opt/jdk1.8.0_152/jre/lib/charsets.jar:/opt/jdk1.8.0_152/jre/lib/jfr.jar:/opt/jdk1.8.0_152/jre/classes"/>
+    <property name="sun.boot.class.path" value="/opt/jdk1.8.0_161/jre/lib/resources.jar:/opt/jdk1.8.0_161/jre/lib/rt.jar:/opt/jdk1.8.0_161/jre/lib/sunrsasign.jar:/opt/jdk1.8.0_161/jre/lib/jsse.jar:/opt/jdk1.8.0_161/jre/lib/jce.jar:/opt/jdk1.8.0_161/jre/lib/charsets.jar:/opt/jdk1.8.0_161/jre/lib/jfr.jar:/opt/jdk1.8.0_161/jre/classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="maven.home" value="/opt/apache-maven-3.5.2"/>
     <property name="file.separator" value="/"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="https.proxyPort" value="8080"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testPar512_x_512" classname="edu.coursera.parallel.MatrixMultiplyTest" time="0.115">
-    <failure message="It was expected that the parallel implementation would run at least 2.400000x faster, but it only achieved NaNx speedup" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: It was expected that the parallel implementation would run at least 2.400000x faster, but it only achieved NaNx speedup
+  <testcase name="testPar512_x_512" classname="edu.coursera.parallel.MatrixMultiplyTest" time="0.585">
+    <failure message="It was expected that the parallel implementation would run at least 1.200000x faster, but it only achieved NaNx speedup" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: It was expected that the parallel implementation would run at least 1.200000x faster, but it only achieved NaNx speedup
 	at junit.framework.Assert.fail(Assert.java:47)
 	at junit.framework.Assert.assertTrue(Assert.java:20)
-	at edu.coursera.parallel.MatrixMultiplyTest.testPar512_x_512(MatrixMultiplyTest.java:118)
+	at edu.coursera.parallel.MatrixMultiplyTest.testPar512_x_512(MatrixMultiplyTest.java:139)
 </failure>
   </testcase>
+  <testcase name="testPar768_x_768" classname="edu.coursera.parallel.MatrixMultiplyTest" time="454.856"/>
 </testsuite>

@@ -1,6 +1,6 @@
 //package edu.coursera.parallel;
 
-import static edu.rice.pcdp.PCDP.forseq2d;
+import static edu.rice.pcdp.PCDP.*;
 import java.util.Random;
 import java.lang.*;
 /**
@@ -26,7 +26,7 @@ public final class MatrixMultiply {
          * TODO Parallelize this outermost two-dimension sequential loop to
          * achieve performance improvement.
          */
-        forall2dChunked(0, N - 1, 0, N - 1, 4, (i, j) -> {
+        forall2dChunked(0, N - 1, 0, N - 1,  (i, j) -> {
             C[i][j] = 0.0;
             for (int k = 0; k < N; k++) {
                 C[i][j] += A[i][k] * B[k][j];
@@ -69,17 +69,20 @@ public final class MatrixMultiply {
         final long seqEndTime = System.currentTimeMillis();
 
         final long parStartTime = System.currentTimeMillis();
-        MatrixMultiply.parMatrixMultiply(A, B, C, N);
+        parMatrixMultiply(A, B, C, N);
         final long parEndTime = System.currentTimeMillis();
 
-        checkResult(refC, C, N);
+        //checkResult(refC, C, N);
 
         System.out.println("seq: " + (seqEndTime - seqStartTime));
         System.out.println("par: " + (parEndTime - seqEndTime));
     }
     
     public static void main(String args[]) {
-        myTestHelper(521);
-        
+        int TEST = 4;
+        for(int i = 0; i < TEST; i++) {
+            myTestHelper(512);
+            myTestHelper(768);
+        }
     }
 }
